@@ -111,7 +111,7 @@ data class GeneralCrossSource(
  */
 class CatalogoGeneralProvider : TmdbProvider() {
     override var name = "Catálogo General"
-    override var lang = "mx"
+    override var lang = "es"
     override val apiName = "Catálogo General"
     override val providerType = ProviderType.MetaProvider
     override val useMetaLoadResponse = false
@@ -128,9 +128,6 @@ class CatalogoGeneralProvider : TmdbProvider() {
     private fun comparableName(name: String): String {
         return filterName(Regex("""\s*\(?\d{4}\)?\s*$""").replace(name, ""))
     }
-
-    private val validApis
-        get() = apis.filter { it.lang == this.lang && it::class != this::class }
 
     private val providerSearchTimeoutMs = 5_000L
     private val findMatchesDeadlineMs = 6_000L
